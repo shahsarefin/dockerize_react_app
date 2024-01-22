@@ -8,7 +8,7 @@ This guide will help you get the React app running on your local machine with Do
 
 Ensure you have the following installed:
 
-- Docker
+    - Docker
 
 #### Checking Docker Installation
 
