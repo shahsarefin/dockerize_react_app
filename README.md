@@ -1,71 +1,44 @@
-# Getting Started with Create React App
+# React App Development Environment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
 
-## Available Scripts
+This guide will help you get the React app running on your local machine with Docker.
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+Ensure you have the following installed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Docker
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Checking Docker Installation
 
-### `npm test`
+To verify that Docker is installed, open a terminal or command prompt and run: - docker --version
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This command should display the Docker version if it's correctly installed.
 
-### `npm run build`
+#### If You Are New to Git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you're unfamiliar with Git, follow these steps to clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Install Git from [git-scm.com](https://git-scm.com/).
+2. Open a terminal or command prompt.
+3. Use the following command to clone the repository, replacing `URL_OF_THE_REPOSITORY` with the actual repository URL:
+   - git clone URL_OF_THE_REPOSITORY
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the Application
 
-### `npm run eject`
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Build the Docker container:
+   - docker build -t arefin_shah_docker_ca_11
+4. Run the container:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   - docker run -p 7775:3000 arefin_shah_docker_ca11
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Access the application in your browser at `localhost:7775`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Notes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# dockerize_react_app
+- The development server inside the container runs on port 3000, which is mapped to port 7775 on your host machine.
+- Ensure port 7775 is free on your local machine.
+- The application will display a `<h1>` tag with the text "Codin 1" and an `<h2>` tag with text "Learn Docker".
