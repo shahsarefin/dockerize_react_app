@@ -1,7 +1,7 @@
 # base image
 FROM node:16
 
-# working directory inside the container 
+# working directory  
 WORKDIR /arefin_shah_site
 
 # dependencies
