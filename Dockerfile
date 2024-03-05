@@ -1,20 +1,38 @@
-# base image
-FROM node:16
+# Stage 1: Build the React app
+FROM node:16 AS build
 
-# working directory  
-WORKDIR /arefin_shah_site
+# Set the working directory in the Docker image
+WORKDIR /arefin_shah_ui_garden
 
-# dependencies
+# Copy package.json and package-lock.json (or yarn.lock) to work directory
 COPY package*.json ./
 
-# Install dependencies in the container
+# Install dependencies
 RUN npm install
 
-# rest of the app's source code to the workdir
+# Copy the rest of your app's source code into the Docker image
 COPY . .
 
-# port for the development server
-EXPOSE 3000
+# Build app for production
+RUN npm run build
 
-# Run the app 
-CMD ["npm", "start"]
+# Stage 2: Serve the app using Node.js and Express
+FROM node:16 AS serve
+
+# Set the working directory to serve  app
+WORKDIR /arefin_shah_ui_garden
+
+# Install Express
+RUN npm install express
+
+# Copy the built app from the previous stage
+COPY --from=build /arefin_shah_ui_garden/build ./public
+
+# Copy the Express server script
+COPY server.js .
+
+# Expose the port your app runs on
+EXPOSE 8083
+
+# Start your app
+CMD ["node", "server.js"]

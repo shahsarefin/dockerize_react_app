@@ -1,5 +1,7 @@
+// Card.stories.tsx
 import { Meta, Story } from "@storybook/react";
-import Card, { CardProps } from "./Card";
+import Card from "./Card";
+import { CardProps } from "./Card.types";
 
 export default {
   title: "Components/Card",

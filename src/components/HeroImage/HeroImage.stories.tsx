@@ -1,5 +1,7 @@
+// HeroImage.stories.tsx
 import { Meta, Story } from "@storybook/react";
-import HeroImage, { HeroImageProps } from "./HeroImage";
+import HeroImage from "./HeroImage";
+import { HeroImageProps } from "./HeroImage.types";
 
 export default {
   title: "Components/HeroImage",

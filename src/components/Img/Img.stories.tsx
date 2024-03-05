@@ -1,5 +1,6 @@
 import { Meta, Story } from "@storybook/react";
-import Img, { ImgProps } from "./Img";
+import Img from "./Img";
+import { ImgProps } from "./Img.types";
 
 export default {
   title: "Components/Img",

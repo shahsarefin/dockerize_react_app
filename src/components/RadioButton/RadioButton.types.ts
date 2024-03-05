@@ -7,3 +7,4 @@ export interface RadioButtonProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   backgroundColor?: string;
 }
+export {};

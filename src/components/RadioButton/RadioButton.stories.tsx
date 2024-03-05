@@ -1,5 +1,7 @@
+// RadioButton.stories.tsx
 import { Meta, Story } from "@storybook/react";
-import RadioButton, { RadioButtonProps } from "./RadioButton";
+import RadioButton from "./RadioButton";
+import { RadioButtonProps } from "./RadioButton.types";
 
 export default {
   title: "Components/RadioButton",

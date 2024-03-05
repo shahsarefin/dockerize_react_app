@@ -42,5 +42,4 @@ const Card: React.FC<CardProps> = ({
     </StyledCard>
   );
 };
-
 export default Card;

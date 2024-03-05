@@ -1,4 +1,4 @@
-import { Meta, Story } from "@storybook/react/types-6-0";
+import { Meta, Story } from "@storybook/react";
 import Label from "./Label";
 import { LabelProps } from "./Label.types";
 
@@ -14,7 +14,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<LabelProps> = (args) => <Label {...args} />;
+const Template: Story<LabelProps> = (args: LabelProps) => <Label {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
