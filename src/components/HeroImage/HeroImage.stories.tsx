@@ -1,0 +1,38 @@
+import { Meta, Story } from "@storybook/react";
+import HeroImage, { HeroImageProps } from "./HeroImage";
+
+export default {
+  title: "Components/HeroImage",
+  component: HeroImage,
+  argTypes: {
+    src: { control: "text", description: "Image source URL" },
+    alt: {
+      control: "text",
+      description: "Image alternative text for accessibility",
+    },
+    disabled: {
+      control: "boolean",
+      description: "Toggle disabled state of the image",
+    },
+    backgroundColor: {
+      control: "color",
+      description: "Background color when disabled",
+    },
+  },
+} as Meta;
+
+const Template: Story<HeroImageProps> = (args) => <HeroImage {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  src: "https://via.placeholder.com/600x400",
+  alt: "Placeholder Image",
+  disabled: false,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  ...Default.args,
+  disabled: true,
+  backgroundColor: "#cccccc",
+};
