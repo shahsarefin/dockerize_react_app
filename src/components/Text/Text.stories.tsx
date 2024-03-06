@@ -20,18 +20,29 @@ export default {
       description:
         "Allows changing the background color of the text component.",
     },
+    size: {
+      control: { type: "select", options: ["title", "description", "footer"] },
+      description: "Adjusts the size of the text based on its intended use.",
+    },
   },
 } as Meta;
 
 const Template: Story<TextProps> = (args) => <Text {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
-  text: "Default Text",
+export const TitleText = Template.bind({});
+TitleText.args = {
+  text: "This is a Title",
+  size: "title",
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  text: "Disabled Text",
-  disabled: true,
+export const DescriptionText = Template.bind({});
+DescriptionText.args = {
+  text: "This is a description text. It's longer and provides more detailed information about something.",
+  size: "description",
+};
+
+export const FooterText = Template.bind({});
+FooterText.args = {
+  text: "Footer Text",
+  size: "footer",
 };

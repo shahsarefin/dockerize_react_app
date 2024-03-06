@@ -1,47 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { RadioButtonProps } from "./RadioButton.types";
+
+export interface RadioButtonProps {
+  label: string;
+  name: string;
+  value: string;
+  // Removed the checked prop to manage it internally for the demo
+  disabled?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  backgroundColor?: string;
+}
 
 const Container = styled.label<{
   disabled?: boolean;
   backgroundColor?: string;
 }>`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   padding: 5px;
   border-radius: 5px;
   background-color: ${(props) =>
-    props.disabled ? "#f0f0f0" : props.backgroundColor};
+    props.disabled ? "#f0f0f0" : props.backgroundColor || "transparent"};
   margin-right: 10px;
-
-  &:hover {
-    background-color: ${(props) => !props.disabled && "#e7e7e7"};
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    padding: 3px;
-  }
 `;
 
 const Input = styled.input`
   margin-right: 5px;
 `;
 
+const FeedbackMessage = styled.div`
+  display: none; /* Initially hidden */
+  /* Styling for the feedback message */
+`;
+
 const RadioButton: React.FC<RadioButtonProps> = ({
   label,
   name,
   value,
-  checked,
   disabled,
   onChange,
   backgroundColor = "#ffffff",
 }) => {
+  const [checked, setChecked] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
+
+  const handleClick = () => {
+    if (!disabled) {
+      setChecked(!checked); // Toggle checked state
+      setShowFeedback(true);
+      setTimeout(() => setShowFeedback(false), 2000); // Hide feedback after 2 seconds
+    }
+  };
+
   return (
     <Container
       disabled={disabled}
-      backgroundColor={checked ? backgroundColor : "transparent"}
+      backgroundColor={backgroundColor}
+      onClick={handleClick} // Handle click to toggle checked state and show feedback
     >
       <Input
         type="radio"
@@ -49,9 +66,10 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         value={value}
         checked={checked}
         disabled={disabled}
-        onChange={onChange}
+        onChange={onChange ? (e) => onChange(e) : undefined}
       />
       {label}
+      {showFeedback && <FeedbackMessage>Selected!</FeedbackMessage>}
     </Container>
   );
 };
