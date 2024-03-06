@@ -4,13 +4,13 @@ FROM node:16 AS build
 # Set the working directory in the Docker image
 WORKDIR /arefin_shah_ui_garden
 
-# Copy package.json and package-lock.json (or yarn.lock) to work directory
+# Copy package.json and package-lock.json to work directory
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of your app's source code into the Docker image
+# Copy the rest of app's source code into the Docker image
 COPY . .
 
 # Build app for production
@@ -31,8 +31,8 @@ COPY --from=build /arefin_shah_ui_garden/build ./public
 # Copy the Express server script
 COPY server.js .
 
-# Expose the port your app runs on
+# Expose the port app runs on
 EXPOSE 8083
 
-# Start your app
+# Start app
 CMD ["node", "server.js"]
