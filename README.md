@@ -52,6 +52,6 @@ This stage also starts with a Node.js base image (`node:16`). It sets the workin
 
 ## Notes
 
-- The development server inside the container runs on port 3000, which is mapped to port 7775 on your host machine.
-- Ensure port 7775 is free on your local machine.
+- The development server inside the container runs on port 3000, which is mapped to port 8083 on your host machine.
+- Ensure port 8083 is free on your local machine.
 - The application will display a `<h1>` tag with the text "Codin 1" and an `<h2>` tag with text "Learn Docker".
