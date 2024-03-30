@@ -1,0 +1,8 @@
+FROM node:16-bullseye
+WORKDIR /arefin_shah_ui_garden
+COPY package*.json ./
+RUN npm ci
+RUN npx playwright install --with-deps chromium
+COPY . .
+EXPOSE 8080
+CMD ["npm", "run", "ci:test"]

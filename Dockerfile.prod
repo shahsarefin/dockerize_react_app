@@ -1,0 +1,13 @@
+FROM node:16 AS build
+WORKDIR /arefin_shah_ui_garden
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+FROM node:16 AS serve
+WORKDIR /arefin_shah_ui_garden
+RUN npm install express
+COPY --from=build /arefin_shah_ui_garden/build ./public
+COPY server.js .
+EXPOSE 8083
+CMD ["node", "server.js"]
