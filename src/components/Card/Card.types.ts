@@ -1,6 +1,7 @@
-// Card.types.ts
 export interface CardProps {
-  text: string;
+  imageSrc: string;
+  title: string;
+  techStack: string[];
   disabled?: boolean;
   backgroundColor?: string;
 }
