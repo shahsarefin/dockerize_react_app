@@ -1,10 +1,6 @@
-export interface DropdownOption {
-  label: string;
-  value: string;
-}
-
+// Dropdown.types.ts
 export interface DropdownProps {
-  options: DropdownOption[];
+  options: { label: string; value: string }[];
   defaultText: string;
   backgroundColor?: string;
   disabled?: boolean;
