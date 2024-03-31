@@ -20,6 +20,7 @@ export default {
       control: "color",
       description: "Background color when disabled",
     },
+    introduction: { control: "text", description: "Introduction text" },
   },
 } as Meta;
 
@@ -28,13 +29,14 @@ const Template: Story<HeroImageProps> = (args) => <HeroImage {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   src: "https://via.placeholder.com/600x400",
-  alt: "Placeholder Image",
+  alt: "Hero Image",
+  introduction: "Introduction Text",
   disabled: false,
+  backgroundColor: "#ffffff",
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   ...Default.args,
   disabled: true,
-  backgroundColor: "#cccccc",
 };
