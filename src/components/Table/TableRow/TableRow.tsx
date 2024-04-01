@@ -6,19 +6,19 @@ const StyledRow = styled.tr<{ disabled?: boolean }>`
   ${({ disabled }) =>
     disabled
       ? css`
-          background-color: #f1f1f1; /* Gray background for disabled */
-          color: #666; /* Dark text for disabled */
+          background-color: #f1f1f1; 
+          color: #666; 
         `
       : css`
-          background-color: #fff; /* White background for enabled */
-          color: #000; /* Black text for enabled */
+          background-color: #fff; 
+          color: #000; 
         `}
 
-  font-weight: bold; /* Bold font weight */
-  table-layout: fixed; /* Ensure fixed table layout */
-  width: 100%; /* Set width to 100% */
-  border-collapse: collapse; /* Collapse table borders */
-  border: 3px solid purple; /* Border style */
+  font-weight: bold; 
+  table-layout: fixed; 
+  width: 100%; 
+  border-collapse: collapse; 
+  border: 3px solid purple; 
 `;
 
 const TableRow: React.FC<{ row: any; disabled?: boolean }> = ({

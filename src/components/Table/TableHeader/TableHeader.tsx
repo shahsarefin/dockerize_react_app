@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-// Styled thead component with conditional styles for both enabled and disabled states
+
 const StyledHeader = styled.thead<{ disabled?: boolean }>`
   background-color: ${({ disabled }) => (disabled ? "#f1f1f1" : "#fff")};
   color: ${({ disabled }) => (disabled ? "#666" : "#000")};
