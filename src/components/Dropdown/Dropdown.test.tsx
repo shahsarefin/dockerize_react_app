@@ -19,7 +19,6 @@ describe('Dropdown Component', () => {
   it('does not open when disabled', () => {
     render(<Dropdown options={[{ label: "Option 1", value: "1" }]} defaultText="Select Option" disabled={true} />);
     fireEvent.click(screen.getByText("Select Option"));
-    // Since the dropdown shouldn't open, we check if "Option 1" is not visible.
     expect(screen.queryByText("Option 1")).not.toBeVisible();
   });
 
