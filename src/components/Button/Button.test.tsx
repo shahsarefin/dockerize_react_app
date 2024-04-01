@@ -23,7 +23,7 @@ describe('Button Component', () => {
     const backgroundColor = '#123456';
     render(<Button text="Colored Button" backgroundColor={backgroundColor} />);
     const buttonElement = screen.getByText("Colored Button");
-    // This test will need to be adjusted based on how styles are applied in your project.
+    
     expect(buttonElement).toHaveStyle(`background-color: ${backgroundColor}`);
   });
 });
