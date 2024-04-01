@@ -66,7 +66,7 @@ const Card: React.FC<CardProps> = ({
   backgroundColor,
 }) => {
   return (
-    <StyledCard disabled={disabled} backgroundColor={backgroundColor}>
+    <StyledCard data-testid="card" disabled={disabled} style={{ backgroundColor }}>
       <div className="card-image-container">
         {imageSrc ? (
           <img className="card-image" src={imageSrc} alt={title} />
