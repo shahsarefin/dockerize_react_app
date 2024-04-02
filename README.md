@@ -55,3 +55,20 @@ This stage also starts with a Node.js base image (`node:16`). It sets the workin
 - The development server inside the container runs on port 3000, which is mapped to port 8083 on your host machine.
 - Ensure port 8083 is free on your local machine.
 - The application will display a `<h1>` tag with the text "Codin 1" and an `<h2>` tag with text "Learn Docker".
+
+## Testing and CI/CD Documentation
+
+### Testing Strategy
+
+Our project uses Jest for unit testing and Storybook for UI component testing. We've implemented interaction tests for simulating user experiences with our components.
+
+### Running Tests Locally
+
+To run all tests locally, execute:
+
+```bash
+npm run test
+npm run test:storybook
+
+
+
