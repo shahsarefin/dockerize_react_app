@@ -1,0 +1,22 @@
+name: Run tests
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: ./Dockerfile.ci
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: docker build -t shahuicomponents -f $COMPOSE_FILE .
+
+      - name: Run tests
+        run: docker run shahuicomponents
